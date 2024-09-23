@@ -534,6 +534,18 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!114 &737988449 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8096673706027468312, guid: 93a4369100175814197b54de8a0895ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1465717575}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc47a6de5c5341349a0dffb646548754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +758,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4011463687982389155, guid: 4cccf6667a88c5c449963eabe6cb9bf9,
         type: 3}
+    - target: {fileID: 8096673706027468312, guid: 93a4369100175814197b54de8a0895ca,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 625ad58ddfd1d934e9174701e7a683de,
+        type: 2}
     - target: {fileID: 8327685916238479027, guid: 93a4369100175814197b54de8a0895ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1048,6 +1066,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8096673706027468312, guid: 93a4369100175814197b54de8a0895ca,
+        type: 3}
+      propertyPath: testing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096673706027468312, guid: 93a4369100175814197b54de8a0895ca,
+        type: 3}
+      propertyPath: secondClearCounter
+      value: 
+      objectReference: {fileID: 737988449}
     - target: {fileID: 8327685916238479027, guid: 93a4369100175814197b54de8a0895ca,
         type: 3}
       propertyPath: m_LocalPosition.x
