@@ -22,3 +22,4 @@ public class GameInput : MonoBehaviour
         return inputVector;
     }
 }
+// in coding, we should manage things separately, so that we can easily debug and test the code
