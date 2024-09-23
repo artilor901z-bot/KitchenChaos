@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+
+
+    public static Player instanceField;
+
 
     public event EventHandler<OnselectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnselectedCounterChangedEventArgs : EventArgs
     {
         public ClearCounter selectedCounter;
     }
-
-
 
     //serializeField is used to make the variable visible in the inspector
     //in the same time, it is private
@@ -24,6 +27,15 @@ public class Player : MonoBehaviour
 
     private Vector3 lastInteractDir;
     private ClearCounter selectedCounter;
+
+    private void Awake()
+    {
+        if(Instance != null)
+        {
+            Debug.LogError("There is more than one player instance");
+        }
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -74,26 +86,19 @@ public class Player : MonoBehaviour
                 //Has ClearCounter component
                 if(clearCounter!=selectedCounter)
                 {
-                    selectedCounter = clearCounter;
-
-                    OnSelectedCounterChanged?.Invoke(this, new OnselectedCounterChangedEventArgs { selectedCounter = selectedCounter });
+                    SetSelectedCounter(clearCounter);
                 }
             }
             else
             {
-                selectedCounter = null;
-                OnSelectedCounterChanged?.Invoke(this, new OnselectedCounterChangedEventArgs { selectedCounter = selectedCounter });
+                SetSelectedCounter(null);
             }
 
         }
         else
         {
-            selectedCounter = null;
-            OnSelectedCounterChanged?.Invoke(this, new OnselectedCounterChangedEventArgs { selectedCounter = selectedCounter });
+            SetSelectedCounter(null);
         }
-
-        Debug.Log(selectedCounter);
-
     }
     private void HandleMovement()
     {
@@ -146,6 +151,13 @@ public class Player : MonoBehaviour
         //transform.forward is the direction that the object is facing
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+    }
+
+    private void SetSelectedCounter(ClearCounter selectedCounter)
+    {
+        this.selectedCounter = selectedCounter;
+        OnSelectedCounterChanged?.Invoke(this, new OnselectedCounterChangedEventArgs { selectedCounter = selectedCounter });
+
     }
 
 }
