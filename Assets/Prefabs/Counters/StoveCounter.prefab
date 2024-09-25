@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2856302f12b5c734aad65fc915cfecbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCounter: {fileID: 0}
+  baseCounter: {fileID: 6428150299076324059}
   visualGameObjectArray:
   - {fileID: 7066222605182186546}
   - {fileID: 1986421296816457676}
@@ -328,6 +328,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6428150299076324059}
   m_SourcePrefab: {fileID: 100100000, guid: 1675b3979b4549c47903c29d9d3797f7, type: 3}
+--- !u!4 &2260900528461066202 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5946860145149799381, guid: 1675b3979b4549c47903c29d9d3797f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5613500291811820559}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4109032469409817171 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8422047432946820700, guid: 1675b3979b4549c47903c29d9d3797f7,
@@ -346,6 +352,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45883e8efa56f044b2b048f54cf1b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  counterTopPoint: {fileID: 2260900528461066202}
+  fryingRecipeSOArray:
+  - {fileID: 11400000, guid: b96a86dacca02a54296baa9147f48348, type: 2}
+  burningRecipeSOArray:
+  - {fileID: 11400000, guid: 483801df7613d0442851beb7061a6d77, type: 2}
 --- !u!4 &4501008070168820412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8327685916238479027, guid: 1675b3979b4549c47903c29d9d3797f7,
