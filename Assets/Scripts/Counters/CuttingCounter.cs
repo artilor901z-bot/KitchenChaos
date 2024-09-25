@@ -12,6 +12,9 @@ public class CuttingCounter : BaseCounter
         public float progressNormalized;
     }
 
+    public event EventHandler OnCut;
+
+
     [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
 
 
@@ -29,7 +32,7 @@ public class CuttingCounter : BaseCounter
                     CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
                     OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs 
                     { 
-                        progressNormalized = cuttingProgress/cuttingRecipeSO.cuttingProgressMax 
+                        progressNormalized = (float)cuttingProgress/cuttingRecipeSO.cuttingProgressMax 
                     });
                 }
   
@@ -57,8 +60,18 @@ public class CuttingCounter : BaseCounter
         if(HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
         {
             cuttingProgress++;
+
+            OnCut?.Invoke(this, EventArgs.Empty);
+
             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
-            if(cuttingProgress >= cuttingRecipeSO.cuttingProgressMax)
+
+            OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+            {
+                progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax
+            });
+
+
+            if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax)
             {
                 KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
 
