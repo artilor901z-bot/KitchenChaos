@@ -1,21 +1,14 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClearCounter : BaseCounter
+public class CuttingCounter : BaseCounter
 {
-
-
-    [SerializeField] private KitchenObjectSO kitchenObjectSO;
-
-
-
     public override void Interact(Player player)
     {
-        if(!HasKitchenObject())
+        if (!HasKitchenObject())
         {
-            if(player.HasKitchenObject())
+            if (player.HasKitchenObject())
             {
                 player.GetKitchenObject().SetKitchenObjectParent(this);
             }
@@ -35,7 +28,6 @@ public class ClearCounter : BaseCounter
                 GetKitchenObject().SetKitchenObjectParent(player);
             }
         }
-
-
     }
+
 }
